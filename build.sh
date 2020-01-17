@@ -25,15 +25,15 @@ cd net-snmp-${NETSNMP_VERSION}
 mkdir bin
 
 # Build the tools.
-./configure --with-defaults --with-ldflags=-Bstatic && \
-    make
+./configure --with-defaults --prefix=/opt && \
+    make install
 if [ $? -ne 0 ]; then
     echo "error: could not compile net-snmp."
     exit 3
 fi
 
-find apps -maxdepth 1 -perm 0755 -exec cp {} bin/ \; && \
-    zip -r9 ../net-snmp-${NETSNMP_VERSION}.zip bin/
+cd /opt && \
+    zip -r9 /tmp/repo/net-snmp-${NETSNMP_VERSION}.zip *
 if [ $? -ne 0 ]; then
     echo "error: could not package net-snmp."
     exit 4
