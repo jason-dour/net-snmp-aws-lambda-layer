@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Version to download and build.
-NETSNMP_VERSION="5.8"
+NETSNMP_VERSION="5.9.1"
 
 # Change to the repo working directory.
 cd /tmp/repo
@@ -26,6 +26,7 @@ mkdir bin
 
 # Build the tools.
 ./configure --with-defaults --prefix=/opt && \
+    make && \
     make install
 if [ $? -ne 0 ]; then
     echo "error: could not compile net-snmp."

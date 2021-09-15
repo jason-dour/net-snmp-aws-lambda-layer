@@ -35,7 +35,7 @@ This is why SNMP.  :)
 1. Then execute the docker `jasondour/amazonlinux-gcc-devel` image to run the build script.
 
     ``` shell
-    docker run -it -v `pwd`:/tmp/repo jasondour/amazonlinux-gcc-devel /tmp/repo/build.sh
+    docker run --rm -it -v `pwd`:/tmp/repo jasondour/amazonlinux-gcc-devel /tmp/repo/build.sh
     ```
 
 ## Deploy the Layer
